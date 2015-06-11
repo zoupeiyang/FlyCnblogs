@@ -1,9 +1,12 @@
 package com.jss.flycnblogs;
 
+
 import android.app.Activity;
+import android.app.Fragment;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 public class MainActivity extends Activity {
 
@@ -12,6 +15,8 @@ public class MainActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 	}
+	
+	
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -30,5 +35,36 @@ public class MainActivity extends Activity {
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
+	}
+	
+	/**
+	 * 底部菜单按钮点击事件处理方法
+	 * @param v
+	 */
+	public void rdButtonClick(View v)
+	{
+		Fragment fragment;
+		int id =v.getId();
+		switch (id) {
+		case R.id.btn_blog:
+			fragment=new BlogFragment();
+			break;
+		case R.id.btn_new:
+			fragment=new BlogFragment();
+			break;
+		case R.id.btn_reading_list:
+			fragment=new BlogFragment();
+			break;
+		case R.id.btn_member:
+			fragment=new BlogFragment();
+			break;
+
+		default:
+			fragment=new BlogFragment();
+			break;
+		}
+		getFragmentManager().beginTransaction()
+		.replace(R.id.main_content, fragment).commit();
+		
 	}
 }

@@ -1,4 +1,17 @@
 <resources>
+       	<style name="main_tab_bottom">
+		<item name="android:textSize">@dimen/font_size_12</item>
+	    <item name="android:ellipsize">marquee</item>
+	    <item name="android:gravity">center_horizontal</item>
+	    <item name="android:paddingTop">@dimen/bottom_tab_padding_up</item>
+	    <item name="android:layout_width">fill_parent</item>
+	    <item name="android:layout_height">wrap_content</item>
+	    <item name="android:button">@null</item>
+	    <item name="android:singleLine">true</item>
+	    <item name="android:drawablePadding">@dimen/bottom_tab_padding_drawable</item>
+	    <item name="android:layout_weight">1.0</item>  
+		<item name="android:paddingBottom">@dimen/bottom_tab_padding_up</item>
+	</style>
 
     <!--
         Base application theme, dependent on API level. This theme is replaced

@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">FlyCnblogs</string>
+    <string name="app_name">博客园</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="tab_blog">博客</string>
+    <string name="tab_new">新闻</string>
+    <string name="tab_reading_list">排行</string>
+    <string name="tab_myblog">我</string>
+    
 
 </resources>
