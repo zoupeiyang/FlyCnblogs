@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.RadioButton;
 
 public class MainActivity extends Activity {
 
@@ -14,6 +15,9 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		//默认打开触发博客这个按钮
+		RadioButton radioButton = (RadioButton)findViewById(R.id.btn_blog);
+		radioButton.performClick();
 	}
 	
 	

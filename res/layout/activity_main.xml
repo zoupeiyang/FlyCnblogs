@@ -9,18 +9,20 @@
             android:layout_height="0.0dip"
             android:layout_weight="1.0"/>
         
-        <View  android:layout_height="1px" android:background="#FFFFFF" android:layout_width="fill_parent"></View>
+        <View  android:layout_height="1dip" android:background="#DEDEDE" android:layout_width="fill_parent"></View>
                 <RadioGroup android:id="@+id/main_tab"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
+            
                     android:layout_gravity="bottom">
                     <RadioButton
                         android:id="@+id/btn_blog" 
                         android:layout_marginTop="2.0dip"
                         android:text="@string/tab_blog"
                         android:drawableTop="@drawable/blog_btn_bg"
+                        android:textColor="@drawable/color_radiobutton"
                         android:onClick="rdButtonClick"
                         style="@style/main_tab_bottom" />
                     <RadioButton 
@@ -28,6 +30,7 @@
                         android:layout_marginTop="2.0dip"
                         android:text="@string/tab_new"
                         android:drawableTop="@drawable/new_btn_bg"
+                        android:textColor="@drawable/color_radiobutton"
                         android:onClick="rdButtonClick"
                         style="@style/main_tab_bottom" />
                     <RadioButton 
@@ -35,6 +38,7 @@
                         android:layout_marginTop="2.0dip"
                         android:text="@string/tab_reading_list"
                         android:drawableTop="@drawable/reading_list_btn_bg"
+                        android:textColor="@drawable/color_radiobutton"
                         android:onClick="rdButtonClick"
                         style="@style/main_tab_bottom" />
                      <RadioButton 
@@ -42,6 +46,7 @@
                         android:layout_marginTop="2.0dip"
                         android:text="@string/tab_myblog"
                         android:drawableTop="@drawable/member_btn_bg"
+                        android:textColor="@drawable/color_radiobutton"
                         android:onClick="rdButtonClick"
                         style="@style/main_tab_bottom" />
                 </RadioGroup>        
