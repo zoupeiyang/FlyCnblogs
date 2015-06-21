@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent"
+	android:gravity="center" android:padding="10dip"
+	android:layout_height="wrap_content">
+	<ProgressBar android:id="@+id/list_footer_progress"
+		android:indeterminate="true" android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:visibility="gone"
+		style="?android:attr/progressBarStyleSmall" >
+	</ProgressBar>
+	<TextView android:id="@+id/tvFooterMore" android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:textColor="@color/black"
+		android:text="@string/pull_to_refresh_more_label" >
+	</TextView>
+</LinearLayout> 
