@@ -120,7 +120,7 @@ public class BlogFragment extends Fragment {
 					Intent intent = new Intent();
 					try {
 					intent.setClass(getActivity(), BlogDetailActivity.class);
-					Blog blog = blogList.get(position);
+					Blog blog = blogList.get(position-1);
 					Bundle bundle = new Bundle();
 					bundle.putInt("blogId", blog.getId());
 					bundle.putString("blogTitle", blog.getTitle());
