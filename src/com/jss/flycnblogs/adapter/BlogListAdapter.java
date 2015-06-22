@@ -27,14 +27,12 @@ import android.widget.TextView;
 
 public class BlogListAdapter extends BaseAdapter {
 
-	private ListView listView;
 	private List<Blog> list;
 	private LayoutInflater mInflater;
 	private Context currentContext;
 	private Map<Integer, Integer> blogMap;
-	public BlogListAdapter(Context context,List<Blog> list,ListView listView)
+	public BlogListAdapter(Context context,List<Blog> list)
 	{
-		this.listView=listView;
 		this.list=list;
 		this.mInflater=(LayoutInflater) context
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
