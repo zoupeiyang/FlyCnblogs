@@ -18,6 +18,7 @@ public class MainActivity extends Activity {
 		//默认打开触发博客这个按钮
 		RadioButton radioButton = (RadioButton)findViewById(R.id.btn_blog);
 		radioButton.performClick();
+		getActionBar().setDisplayShowHomeEnabled(false);
 	}
 	
 	
@@ -57,7 +58,7 @@ public class MainActivity extends Activity {
 			fragment=new BlogFragment();
 			break;
 		case R.id.btn_reading_list:
-			fragment=new BlogFragment();
+			fragment=new HotBlogFragment();
 			break;
 		case R.id.btn_member:
 			fragment=new BlogFragment();

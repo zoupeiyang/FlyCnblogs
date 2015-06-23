@@ -39,6 +39,22 @@ public class BlogService {
 		return list;
 	}
 	
+	/**
+	 * 根据分页页码返回48小时阅读排行Blog对象集合
+	 * @param pageIndex
+	 * @return
+	 */
+	public static List<Blog> getHotBlogList(int pageIndex,Context context)
+	{
+		
+		int pageSize = AppConfig.NUM_48HOURS_TOP_VIEW;
+		int itemCount=pageIndex*pageSize;
+		String url = AppConfig.URL_48HOURS_TOP_VIEW_LIST.replace("{size}",
+				String.valueOf(itemCount));
+		String dataString = CacheManager.getHttpCache(context).httpGetString(url);
+		ArrayList<Blog> list = ParseString(dataString);
+		return list;
+	}
 	
 	/**
 	 * 将字符串转换为Blog集合

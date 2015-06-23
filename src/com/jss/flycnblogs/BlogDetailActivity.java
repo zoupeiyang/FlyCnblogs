@@ -17,6 +17,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.AttributeSet;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.webkit.WebView;
 import android.widget.ProgressBar;
@@ -41,6 +42,10 @@ public class BlogDetailActivity extends Activity {
 		this.progressBar=(ProgressBar)findViewById(R.id.progressbar_loading);
 		this.webview = (WebView)findViewById(R.id.webview_content);
 		DataTask dataTask = new DataTask(id);
+		getActionBar().setDisplayHomeAsUpEnabled(true);
+		getActionBar().setDisplayShowHomeEnabled(false);
+		getActionBar().setHomeButtonEnabled(true);
+		//getActionBar().setHomeAsUpIndicator();
 		dataTask.execute();
 		
 		
@@ -121,5 +126,17 @@ public class BlogDetailActivity extends Activity {
 		return outSteam.toByteArray();
 	}
 	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		// Handle action bar item clicks here. The action bar will
+		// automatically handle clicks on the Home/Up button, so long
+		// as you specify a parent activity in AndroidManifest.xml.
+		int id = item.getItemId();
+		if (id == android.R.id.home) {
+			this.finish();
+			return true;
+		}
+		return super.onOptionsItemSelected(item);
+	}
 
 }
