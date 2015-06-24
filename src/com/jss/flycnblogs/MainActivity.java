@@ -3,13 +3,18 @@ package com.jss.flycnblogs;
 
 import android.app.Activity;
 import android.app.Fragment;
+import android.content.Context;
+import android.opengl.Visibility;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.RadioButton;
+import android.widget.TextView;
 
-public class MainActivity extends Activity {
+public class MainActivity extends MainBaseActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -17,8 +22,16 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.activity_main);
 		//默认打开触发博客这个按钮
 		RadioButton radioButton = (RadioButton)findViewById(R.id.btn_blog);
+		//LayoutInflater inflator = (LayoutInflater) this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+		//View v = inflator.inflate(R.layout.actionbar_layout, null);
+	 ImageView imageView=	(ImageView)findViewById(R.id.imageview_back);
+	 TextView textView =(TextView)findViewById(R.id.textview_back);
+	 TextView textViewTitle =(TextView)findViewById(R.id.textview_title);
+	 imageView.setVisibility(View.GONE);
+	 textView.setVisibility(View.GONE);
+	 textViewTitle.setText("博客园");
 		radioButton.performClick();
-		getActionBar().setDisplayShowHomeEnabled(false);
+	//	getActionBar().setDisplayShowHomeEnabled(false);
 	}
 	
 	
@@ -26,7 +39,7 @@ public class MainActivity extends Activity {
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.main, menu);
+		//getMenuInflater().inflate(R.menu.main, menu);
 		return true;
 	}
 

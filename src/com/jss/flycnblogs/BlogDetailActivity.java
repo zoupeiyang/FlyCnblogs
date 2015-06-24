@@ -20,10 +20,11 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.webkit.WebView;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-public class BlogDetailActivity extends Activity {
+public class BlogDetailActivity extends MainBaseActivity {
 	
 	private int id;
 	private String blogInfo;
@@ -41,10 +42,16 @@ public class BlogDetailActivity extends Activity {
 		this.blogInfo=getIntent().getStringExtra("blogInfo");
 		this.progressBar=(ProgressBar)findViewById(R.id.progressbar_loading);
 		this.webview = (WebView)findViewById(R.id.webview_content);
+		// ImageView imageView=	(ImageView)findViewById(R.id.imageview_back);
+		 TextView textView =(TextView)findViewById(R.id.textview_back);
+		 TextView textViewTitle =(TextView)findViewById(R.id.textview_title);
+		// imageView.setVisibility(View.GONE);
+		 textView.setVisibility(View.GONE);
+		 textViewTitle.setText("²©¿ÍÕýÎÄ");
 		DataTask dataTask = new DataTask(id);
-		getActionBar().setDisplayHomeAsUpEnabled(true);
-		getActionBar().setDisplayShowHomeEnabled(false);
-		getActionBar().setHomeButtonEnabled(true);
+//		getActionBar().setDisplayHomeAsUpEnabled(true);
+//		getActionBar().setDisplayShowHomeEnabled(false);
+//		getActionBar().setHomeButtonEnabled(true);
 		//getActionBar().setHomeAsUpIndicator();
 		dataTask.execute();
 		

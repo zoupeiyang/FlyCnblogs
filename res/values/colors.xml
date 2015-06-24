@@ -24,4 +24,8 @@
 	
 	<color name="copyright_color">#ff999999</color>
 	
-	<color name="click_color">#ff6c88ae</color></resources>
+	<color name="click_color">#ff6c88ae</color>
+	<color name="actionbar_color">#0C99EF</color>
+	
+	</resources>
+	
