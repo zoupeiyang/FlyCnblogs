@@ -68,7 +68,7 @@ public class MainActivity extends MainBaseActivity {
 			fragment=new BlogFragment();
 			break;
 		case R.id.btn_new:
-			fragment=new BlogFragment();
+			fragment=new NewsFragment();
 			break;
 		case R.id.btn_reading_list:
 			fragment=new HotBlogFragment();

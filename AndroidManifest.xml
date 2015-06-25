@@ -30,6 +30,9 @@
           <activity android:name=".BlogDetailActivity"
             android:label="@string/app_name" >
         </activity>
+         <activity android:name=".NewsDetailActivity"
+            android:label="@string/app_name" >
+        </activity>
     </application>
 
 </manifest>

@@ -12,6 +12,7 @@ import cn.trinea.android.common.util.TimeUtils;
 import com.jss.flycnblogs.R;
 import com.jss.flycnblogs.core.AppConfig;
 import com.jss.flycnblogs.entity.Blog;
+import com.jss.flycnblogs.entity.New;
 
 import android.content.Context;
 import android.graphics.Bitmap.Config;
@@ -25,19 +26,19 @@ import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
-public class BlogListAdapter extends BaseAdapter {
+public class NewListAdapter extends BaseAdapter {
 
-	private List<Blog> list;
+	private List<New> list;
 	private LayoutInflater mInflater;
 	private Context currentContext;
-	private Map<Integer, Integer> blogMap;
-	public BlogListAdapter(Context context,List<Blog> list)
+	private Map<Integer, Integer> newMap;
+	public NewListAdapter(Context context,List<New> list)
 	{
 		this.list=list;
 		this.mInflater=(LayoutInflater) context
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		this.currentContext=context;
-		blogMap = new HashMap<Integer, Integer>();
+		newMap = new HashMap<Integer, Integer>();
 		
 	}
 	
@@ -45,8 +46,8 @@ public class BlogListAdapter extends BaseAdapter {
 	public class ViewHolder {
 		TextView text_id;
 		TextView text_title;
-		TextView text_summary;
 		ImageView imageIcon;
+		TextView text_summary;
 		TextView text_diggs;
 		TextView text_views;
 		TextView text_comments;
@@ -55,26 +56,26 @@ public class BlogListAdapter extends BaseAdapter {
 		
 	}
 	
-	public boolean addAll(int location, Collection<? extends Blog> collection)
+	public boolean addAll(int location, Collection<? extends New> collection)
 	{
-		for (Blog blog : collection) {
-			if(!blogMap.containsKey(blog.getId()))
+		for (New news : collection) {
+			if(!newMap.containsKey(news.getId()))
 			{
-				blogMap.put(blog.getId(), blog.getId());
-				list.add(location,blog);
+				newMap.put(news.getId(), news.getId());
+				list.add(location,news);
 				
 			}
 		}
 		return true;
 	}
 	
-	public boolean addAll(Collection<? extends Blog> collection)
+	public boolean addAll(Collection<? extends New> collection)
 	{
-		for (Blog blog : collection) {
-			if(!blogMap.containsKey(blog.getId()))
+		for (New news : collection) {
+			if(!newMap.containsKey(news.getId()))
 			{
-				blogMap.put(blog.getId(), blog.getId());
-				list.add(blog);
+				newMap.put(news.getId(), news.getId());
+				list.add(news);
 				
 			}
 		}
@@ -103,7 +104,7 @@ public class BlogListAdapter extends BaseAdapter {
 	public View getView(int position, View convertView, ViewGroup parent) {
 		// TODO Auto-generated method stub
 		ViewHolder viewHolder = null;
-		Blog blog = list.get(position);
+		New news = list.get(position);
 		if(convertView!=null&&convertView.getId()==R.id.pull_refresh_list)
 		{
 			viewHolder=(ViewHolder)convertView.getTag();
@@ -119,17 +120,18 @@ public class BlogListAdapter extends BaseAdapter {
 			viewHolder.text_views=(TextView) convertView.findViewById(R.id.textview_views);
 			viewHolder.text_published=(TextView) convertView.findViewById(R.id.textview_published);
 		    viewHolder.imageIcon=(ImageView) convertView.findViewById(R.id.imageview_user_avatar);
+
 			
 		}
 		
-		viewHolder.text_comments.setText(String.valueOf(blog.getComments()));
-		viewHolder.text_diggs.setText(String.valueOf(blog.getDiggs()));
-		viewHolder.text_published.setText(TimeUtils.getTime(blog.getPublished().getTime(), TimeUtils.DATE_FORMAT_DATE));
-		viewHolder.text_summary.setText(blog.getSummary());
-		viewHolder.text_title.setText(blog.getTitle());
-		viewHolder.text_id.setText(String.valueOf(blog.getId()));
-		viewHolder.text_views.setText(String.valueOf(blog.getViews()));
-		AppConfig.IMAGE_CACHE.get(blog.getAuthorAvatar(), viewHolder.imageIcon);
+		viewHolder.text_comments.setText(String.valueOf(news.getComments()));
+		viewHolder.text_diggs.setText(String.valueOf(news.getDiggs()));
+		viewHolder.text_published.setText(TimeUtils.getTime(news.getPublished().getTime(), TimeUtils.DATE_FORMAT_DATE));
+		viewHolder.text_summary.setText(news.getSummary());
+		viewHolder.text_title.setText(news.getTitle());
+		viewHolder.text_id.setText(String.valueOf(news.getId()));
+		viewHolder.text_views.setText(String.valueOf(news.getViews()));
+		viewHolder.imageIcon.setVisibility(View.GONE);
 		//viewHolder.imageIcon.setImageDrawable(ImageUtils.getDrawableFromUrl("http://pic.cnblogs.com/face/79603/20150318151528.png", 3000));
 		convertView.setTag(viewHolder);
 		return convertView;
