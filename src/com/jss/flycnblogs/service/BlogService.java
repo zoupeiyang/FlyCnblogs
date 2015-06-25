@@ -16,10 +16,10 @@ import android.content.Context;
 import cn.trinea.android.common.util.CacheManager;
 
 import com.jss.flycnblogs.BlogDetailActivity;
-import com.jss.flycnblogs.adapter.BlogXmlParser;
 import com.jss.flycnblogs.core.AppConfig;
 import com.jss.flycnblogs.entity.Blog;
 import com.jss.flycnblogs.parser.BlogListXmlParser;
+import com.jss.flycnblogs.parser.BlogXmlParser;
 
 public class BlogService {
 	

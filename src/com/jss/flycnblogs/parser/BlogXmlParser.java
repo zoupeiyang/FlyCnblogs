@@ -1,4 +1,4 @@
-package com.jss.flycnblogs.adapter;
+package com.jss.flycnblogs.parser;
 
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
