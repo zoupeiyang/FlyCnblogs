@@ -37,7 +37,7 @@ public class SampleFragmentPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public CharSequence getPageTitle(int position) {
-        return new String[]{"10天推荐排行", "48小时热门",
+        return new String[]{"10天推荐", "48小时热门",
                 "最新博客"}[position];
     }
 
