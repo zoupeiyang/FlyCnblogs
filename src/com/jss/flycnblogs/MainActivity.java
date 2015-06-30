@@ -2,7 +2,7 @@ package com.jss.flycnblogs;
 
 
 import android.app.Activity;
-import android.app.Fragment;
+import android.support.v4.app.Fragment;
 import android.content.Context;
 import android.opengl.Visibility;
 import android.os.Bundle;
@@ -61,11 +61,11 @@ public class MainActivity extends MainBaseActivity {
 	 */
 	public void rdButtonClick(View v)
 	{
-		Fragment fragment;
+		Fragment fragment=new BlogFragment();
 		int id =v.getId();
 		switch (id) {
 		case R.id.btn_blog:
-			fragment=new BlogFragment();
+			fragment=new BlogMainFragment();
 			break;
 		case R.id.btn_new:
 			fragment=new NewsFragment();
@@ -74,14 +74,14 @@ public class MainActivity extends MainBaseActivity {
 			fragment=new HotBlogFragment();
 			break;
 		case R.id.btn_member:
-			fragment=new BlogFragment();
+			fragment=new MoreFragment();
 			break;
 
 		default:
-			fragment=new BlogFragment();
+		//	fragment=new BlogFragment();
 			break;
 		}
-		getFragmentManager().beginTransaction()
+		getSupportFragmentManager().beginTransaction()
 		.replace(R.id.main_content, fragment).commit();
 		
 	}

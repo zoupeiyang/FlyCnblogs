@@ -9,6 +9,8 @@
     <string name="tab_reading_list">排行</string>
     <string name="tab_myblog">我</string>
     <string name="pull_to_refresh_more_label">加载更多....</string>
+    <string name="close_sound">关闭声音</string>
+    
     
 
 </resources>
