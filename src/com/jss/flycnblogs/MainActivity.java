@@ -15,6 +15,9 @@ import android.widget.RadioButton;
 import android.widget.TextView;
 
 public class MainActivity extends MainBaseActivity {
+	
+	private static BlogMainFragment blogMainFragment=new BlogMainFragment();
+	private static NewsMainFragment newsMainFragment=new NewsMainFragment();
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -65,10 +68,10 @@ public class MainActivity extends MainBaseActivity {
 		int id =v.getId();
 		switch (id) {
 		case R.id.btn_blog:
-			fragment=new BlogMainFragment();
+			fragment=blogMainFragment;
 			break;
 		case R.id.btn_new:
-			fragment=new NewsFragment();
+			fragment=newsMainFragment;
 			break;
 		case R.id.btn_reading_list:
 			fragment=new HotBlogFragment();

@@ -57,6 +57,23 @@ public class BlogService {
 	}
 	
 	/**
+	 * 根据分页页码返回10天推荐播客对象集合
+	 * @param pageIndex
+	 * @return
+	 */
+	public static List<Blog> getRecommendBlogList(int pageIndex,Context context)
+	{
+		
+		int pageSize = AppConfig.NUM_TENDAYS_TOP_DIGG;
+		int itemCount=pageIndex*pageSize;
+		String url = AppConfig.URL_TENDAYS_TOP_DIGG_LIST.replace("{size}",
+				String.valueOf(itemCount));
+		String dataString = CacheManager.getHttpCache(context).httpGetString(url);
+		ArrayList<Blog> list = ParseString(dataString);
+		return list;
+	}
+	
+	/**
 	 * 将字符串转换为Blog集合
 	 * 
 	 * @return

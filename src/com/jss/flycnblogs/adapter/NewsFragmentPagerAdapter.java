@@ -7,13 +7,14 @@ import com.jss.flycnblogs.BlogFragment;
 import com.jss.flycnblogs.HotBlogFragment;
 import com.jss.flycnblogs.NewsFragment;
 import com.jss.flycnblogs.RecommendBlogFragment;
+import com.jss.flycnblogs.RecommendNewsFragment;
 
 import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-public class SampleFragmentPagerAdapter extends FragmentPagerAdapter {
+public class NewsFragmentPagerAdapter extends FragmentPagerAdapter {
    
     
     private static List<Fragment> fragments;
@@ -21,12 +22,10 @@ public class SampleFragmentPagerAdapter extends FragmentPagerAdapter {
     private Context mContext;
      static{
     	 fragments=new ArrayList<Fragment>();
-         fragments.add(new BlogFragment());
-         fragments.add(new HotBlogFragment());
-         fragments.add(new RecommendBlogFragment());
-
+         fragments.add(new NewsFragment());
+         fragments.add(new RecommendNewsFragment());
     }
-    public SampleFragmentPagerAdapter(Context context, FragmentManager fm) {
+    public NewsFragmentPagerAdapter(Context context, FragmentManager fm) {
         super(fm);
         this.mContext = context;
        
@@ -39,8 +38,8 @@ public class SampleFragmentPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public CharSequence getPageTitle(int position) {
-        return new String[]{"最新博客", "48小时热门",
-                "10天推荐"}[position];
+        return new String[]{"最新新闻", "推荐新闻"
+              }[position];
     }
 
     @Override

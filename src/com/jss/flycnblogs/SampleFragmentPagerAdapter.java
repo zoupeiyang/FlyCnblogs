@@ -1,4 +1,4 @@
-package com.jss.flycnblogs.adapter;
+package com.jss.flycnblogs;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,10 +21,9 @@ public class SampleFragmentPagerAdapter extends FragmentPagerAdapter {
     private Context mContext;
      static{
     	 fragments=new ArrayList<Fragment>();
-         fragments.add(new BlogFragment());
-         fragments.add(new HotBlogFragment());
          fragments.add(new RecommendBlogFragment());
-
+         fragments.add(new HotBlogFragment());
+         fragments.add(new BlogFragment());
     }
     public SampleFragmentPagerAdapter(Context context, FragmentManager fm) {
         super(fm);
@@ -39,8 +38,8 @@ public class SampleFragmentPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public CharSequence getPageTitle(int position) {
-        return new String[]{"最新博客", "48小时热门",
-                "10天推荐"}[position];
+        return new String[]{"10天推荐", "48小时热门",
+                "最新博客"}[position];
     }
 
     @Override

@@ -45,21 +45,21 @@ public class NewsService {
 	}
 	
 	/**
-	 * 根据分页页码返回48小时阅读排行Blog对象集合
+	 * 根据分页页码返回推荐新闻对象集合
 	 * @param pageIndex
 	 * @return
 	 */
-//	public static List<New> getHotBlogList(int pageIndex,Context context)
-//	{
-//		
-//		int pageSize = AppConfig.NUM_48HOURS_TOP_VIEW;
-//		int itemCount=pageIndex*pageSize;
-//		String url = AppConfig.URL_48HOURS_TOP_VIEW_LIST.replace("{size}",
-//				String.valueOf(itemCount));
-//		String dataString = CacheManager.getHttpCache(context).httpGetString(url);
-//		List<New> list = ParseString(dataString);
-//		return list;
-//	}
+	public static List<New> getRecommendNewsList(int pageIndex,Context context)
+	{
+		int pageSize = AppConfig.COMMENT_PAGE_SIZE;
+		String url = AppConfig.URL_RECOMMEND_NEWS_LIST.replace("{pageIndex}",
+				String.valueOf(pageIndex)).replace("{pageSize}",
+				String.valueOf(pageSize));// 数据地址
+		String dataString = CacheManager.getHttpCache(context).httpGetString(url);
+		Log.i("http1", dataString);
+		List<New> list = ParseString(dataString);
+		return list;
+	}
 	
 	/**
 	 * 将字符串转换为Blog集合
