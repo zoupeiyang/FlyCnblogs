@@ -3,7 +3,9 @@ package com.jss.flycnblogs.service;
 import java.io.IOException;
 import java.io.StringReader;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParserFactory;
@@ -13,7 +15,10 @@ import org.xml.sax.SAXException;
 import org.xml.sax.XMLReader;
 
 import android.content.Context;
+import android.util.Log;
 import cn.trinea.android.common.util.CacheManager;
+import cn.trinea.android.common.util.HttpUtils;
+import cn.trinea.android.common.util.JSONUtils;
 
 import com.jss.flycnblogs.BlogDetailActivity;
 import com.jss.flycnblogs.core.AppConfig;
@@ -34,7 +39,24 @@ public class BlogService {
 		String url = AppConfig.URL_GET_BLOG_LIST.replace("{pageIndex}",
 				String.valueOf(pageIndex)).replace("{pageSize}",
 				String.valueOf(pageSize));// Êý¾ÝµØÖ·
-		String dataString = CacheManager.getHttpCache(context).httpGetString(url);
+	//	String dataString = CacheManager.getHttpCache(context).httpGetString(url);
+		String dataString = HttpUtils.httpGetString(url);
+//		Map<String, String> paramsMap=new HashMap<String, String>();
+//		paramsMap.put("mobileNumber", "15989076971");
+//		paramsMap.put("password", "123456");
+//		String httpUrl="http://192.168.1.105/?m=Home&c=Member&a=login&enterpriseUid=654321";
+//		
+//		String dataString = HttpUtils.httpPostString(httpUrl,paramsMap);
+//		List<String> statusString=JSONUtils.getStringList(dataString, "data", null);
+//		for (String string : statusString) {
+//			
+//			Log.i("tet","dd:"+string);
+//			
+//		}
+//		String msgString=JSONUtils.getString(dataString, "msg", "");
+
+
+
 		ArrayList<Blog> list = ParseString(dataString);
 		return list;
 	}
